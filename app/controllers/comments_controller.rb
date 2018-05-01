@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.create(comment_params)
     post = Post.find_by(id: comment_params[:post_id])
-    raise post.inspect
+    raise comment.inspect
     post.comments << comment
     redirect_to comment.post
   end
