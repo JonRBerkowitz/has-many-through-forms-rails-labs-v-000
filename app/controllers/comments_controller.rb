@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     comment = Comment.create(comment_params)
     post = Post.find_by(id: comment_params[:post_id])
     post.comments << comment
-    raise post.comments.inspect
     redirect_to comment.post
   end
 
