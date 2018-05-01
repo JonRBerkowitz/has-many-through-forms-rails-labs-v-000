@@ -7,7 +7,7 @@
 <br>
 Comments:
 <% @post.comments.each do |com| %>
-  <li><%= link_to com.user.username, com.user %> says: <%= com.content %></li>
+  <li><%= com.user.username %> says: <%= com.content %></li>
 <%end%>
 
   <%= form_for(@comment) do |f| %>
