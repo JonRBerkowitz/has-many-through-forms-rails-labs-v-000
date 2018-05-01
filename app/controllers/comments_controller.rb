@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.create(comment_params)
-    @post = Post.find_by_id(params[:post_id])
+    @post = Post.find_by_id(1)
     @post.comments << comment
     redirect_to comment.post
   end
