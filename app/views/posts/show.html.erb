@@ -5,6 +5,12 @@
   <li> <%=c.name%> </li>
 <%end%>
 <br>
+
+Users:
+<% @post.users.uniq.each do |user| %>
+  <li><%= link_to user.username, user %></li>
+<% end %>
+
 Comments:
 <% @post.comments.each do |com| %>
   <li><%= com.user.username %> says: <%= com.content %></li>
