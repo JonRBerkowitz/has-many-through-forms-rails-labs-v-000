@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     a = comment_params[:user_attributes]
-    raise a.inspect
+    raise a[:username].inspect
     comment = Comment.create(comment_params)
     post = Post.find_by(id: comment_params[:post_id])
     post.comments << comment
