@@ -15,9 +15,6 @@
         <%= c.text_area :content %><br>
     <%end%>
 
-    <%= f.fields_for :users do |u| %>
-      <%= u.collection_select :user_id, User.all, :id, :username, include_blank: 'Choose a User' %>
-    <%end%>
 
     <%= f.submit %>
 <%end%>
