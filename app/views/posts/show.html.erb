@@ -12,6 +12,6 @@
   <%= form_for(@comment) do |f| %>
         <%= f.text_area :content %><br>
         <%= f.collection_select :user_id, User.all, :id, :username, include_blank: 'Choose a User' %>
-        <%= f.hidden_field :post_id, value: <%= @post.id %> %> 
+        <%= f.hidden_field :post_id, value: 'abc'%> 
     <%= f.submit %>
 <%end%>
