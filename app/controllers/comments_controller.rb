@@ -2,11 +2,11 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.create(comment_params)
-    raise comment_params.inspect
     post = Post.find_by(id: comment_params[:post_id])
     post.comments << comment
     user = User.find_by(id: comment_params[:user_id])
     user.comments << comment
+    raise user.inspect
     redirect_to comment.post
   end
 
