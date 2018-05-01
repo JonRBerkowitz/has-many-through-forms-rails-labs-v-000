@@ -13,7 +13,7 @@ Comments:
   <%= form_for(@comment) do |f| %>
         <%= f.text_area :content %><br>
         <%= f.collection_select :user_id, User.all, :id, :username, include_blank: 'Choose a User' %>
-        <%= f.fields_for :user User.new do |user_builder| %>
+        <%= f.fields_for :user, User.new do |user_builder| %>
           <%= user_builder.text_field :username %>
         <%end%>
         <%= f.hidden_field :post_id, value: @post.id %>
