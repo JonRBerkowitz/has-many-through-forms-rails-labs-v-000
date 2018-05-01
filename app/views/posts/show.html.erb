@@ -9,12 +9,7 @@
   <li><%=com.content%></li>
 <%end%>
 
-<%= form_for(@post) do |f| %>
-    <%= f.fields_for :comments, Comment.new do |c| %>
-        Add a comment:<br>
-        <%= c.text_area :content %><br>
-    <%end%>
-
-
+  <%= form_for(@comment) do |f| %>
+        <%= f.text_area :content %><br>
     <%= f.submit %>
 <%end%>
