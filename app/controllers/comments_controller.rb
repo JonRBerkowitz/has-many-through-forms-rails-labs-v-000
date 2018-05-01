@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     post.comments << comment
     user = User.find_by(id: comment_params[:user_id])
     user.comments << comment
-    raise user.inspect
+    raise user.comments.inspect
     redirect_to comment.post
   end
 
