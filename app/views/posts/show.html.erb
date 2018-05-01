@@ -1,1 +1,23 @@
+<h2><%= @post.title %></h2>
+<p><%= @post.content %></p>
 
+<% @post.categories.each do |c| %>
+  <li> <%=c.name%> </li>
+<%end%>
+
+<% @post.comments.each do |com| %>
+  <li><%=com.content%></li>
+<%end%>
+
+<%= form_for(@post) do |f| %>
+    <%= f.fields_for :comments, Comment.new do |c| %>
+        Add a comment:<br>
+        <%= c.text_area :content %><br>
+    <%end%>
+
+    <%= f.fields_for :users do |u| %>
+      <%= u.collection_select :user_id, User.all, :id, :username, include_blank: 'Choose a User' %>
+    <%end%>
+
+    <%= f.submit %>
+<%end%>
